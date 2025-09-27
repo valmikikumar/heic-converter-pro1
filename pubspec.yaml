@@ -1,5 +1,5 @@
 name: heic_converter_pro
-description: Professional HEIC to JPG/PNG/PDF converter with batch processing and premium features.
+description: "Professional HEIC Converter with Pro features, Firebase Auth, and monetization"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,60 +10,69 @@ dependencies:
   flutter:
     sdk: flutter
   
+  # UI & Navigation
+  cupertino_icons: ^1.0.2
+  go_router: ^12.1.3
+  
+  # State Management
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+  
   # Firebase
   firebase_core: ^2.24.2
   firebase_auth: ^4.15.3
   cloud_firestore: ^4.13.6
   firebase_storage: ^11.5.6
+  google_sign_in: ^6.2.1
   
-  # Google Sign In
-  google_sign_in: ^6.1.6
-  
-  # File handling
+  # File handling & conversion
   file_picker: ^6.1.1
+  image: ^4.1.3
+  pdf: ^3.10.7
   path_provider: ^2.1.1
   permission_handler: ^11.0.1
   path: ^1.8.3
-  
-  # Image processing (Working packages only)
-  image: ^4.1.3
-  image_picker: ^1.0.4
-  
-  # PDF generation
-  pdf: ^3.10.7
-  
-  # UI Components
   pin_code_fields: ^8.0.1
   
-  # Ads and Monetization
-  google_mobile_ads: ^3.1.0
-  
-  # In-App Purchases
+  # Monetization
+  google_mobile_ads: ^4.0.0
   in_app_purchase: ^3.1.11
   in_app_purchase_android: ^0.3.6
   
-  # State Management
-  flutter_riverpod: ^2.4.9
-  
-  # Navigation
-  go_router: ^12.1.3
-  
-  # Local Storage
-  shared_preferences: ^2.2.2
+  # Storage & persistence
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.2
   
-  # Code Generation
-  json_annotation: ^4.8.1
+  # Sharing & utilities
+  share_plus: ^7.2.1
+  photo_view: ^0.14.0
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
+  
+  # UI enhancements
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+  lottie: ^2.7.0
+  flutter_staggered_animations: ^1.1.1
+  
+  # Image editing
+  image_cropper: ^5.0.1
+  image_picker: ^1.0.4
+  
+  # Utilities
+  uuid: ^4.2.1
+  intl: ^0.19.0
+  url_launcher: ^6.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-  
-  # Code Generation
-  build_runner: ^2.4.7
   hive_generator: ^2.0.1
+  build_runner: ^2.4.7
+  riverpod_generator: ^2.3.9
+  json_annotation: ^4.8.1
   json_serializable: ^6.7.1
 
 flutter:
@@ -72,6 +81,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/animations/
   
   fonts:
     - family: Roboto
