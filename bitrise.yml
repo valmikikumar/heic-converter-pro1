@@ -1,0 +1,32 @@
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  primary:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - install-missing-android-tools@3:
+        inputs:
+        - gradlew_path: "$PROJECT_LOCATION/gradlew"
+    - flutter-installer@0:
+        inputs:
+        - flutter_version: "3.16.0"
+    - flutter-analyze@0:
+        inputs:
+        - project_location: "$PROJECT_LOCATION"
+    - flutter-test@0:
+        inputs:
+        - project_location: "$PROJECT_LOCATION"
+    - flutter-build@0:
+        inputs:
+        - project_location: "$PROJECT_LOCATION"
+        - platform: "android"
+        - build_type: "apk"
+        - build_flags: "--release"
+    - cache-push@2: {}
+    - deploy-to-bitrise-io@2:
+        inputs:
+        - notify_user_groups: "testers"

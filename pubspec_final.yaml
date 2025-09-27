@@ -1,0 +1,81 @@
+name: heic_converter_pro
+description: Professional HEIC to JPG/PNG/PDF converter with batch processing and premium features.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+  
+  # Google Sign In
+  google_sign_in: ^6.1.6
+  
+  # File handling
+  file_picker: ^6.1.1
+  path_provider: ^2.1.1
+  permission_handler: ^11.0.1
+  path: ^1.8.3
+  
+  # Image processing
+  image: ^4.1.3
+  image_picker: ^1.0.4
+  
+  # PDF generation
+  pdf: ^3.10.7
+  
+  # UI Components
+  pin_code_fields: ^8.0.1
+  
+  # Ads and Monetization
+  google_mobile_ads: ^3.1.0
+  
+  # In-App Purchases (Fixed versions)
+  in_app_purchase: ^3.1.11
+  in_app_purchase_android: ^0.3.6
+  
+  # State Management
+  flutter_riverpod: ^2.4.9
+  
+  # Navigation
+  go_router: ^12.1.3
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  
+  # Code Generation
+  json_annotation: ^4.8.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  
+  # Code Generation
+  build_runner: ^2.4.7
+  hive_generator: ^2.0.1
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+  
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+        - asset: fonts/Roboto-Bold.ttf
+          weight: 700

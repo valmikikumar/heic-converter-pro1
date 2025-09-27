@@ -1,0 +1,41 @@
+version: 1.0.0
+
+# AppCircle Configuration for HEIC Converter Pro
+
+# Build Configuration
+build_config:
+  platform: flutter
+  flutter_version: "3.16.0"
+  
+# Build Steps
+build_steps:
+  - name: "Install Dependencies"
+    script: |
+      flutter pub get
+      
+  - name: "Run Tests"
+    script: |
+      flutter test
+      
+  - name: "Build APK"
+    script: |
+      flutter build apk --release
+      
+  - name: "Build AAB"
+    script: |
+      flutter build appbundle --release
+
+# Artifacts
+artifacts:
+  - path: "build/app/outputs/flutter-apk/app-release.apk"
+    type: "apk"
+  - path: "build/app/outputs/bundle/release/app-release.aab"
+    type: "aab"
+
+# Distribution
+distribution:
+  email:
+    recipients:
+      - your-email@example.com
+  slack:
+    webhook_url: "YOUR_SLACK_WEBHOOK"
