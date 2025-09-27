@@ -1,0 +1,3 @@
+# This is a placeholder for the gradle-wrapper.jar file
+# The actual JAR file should be downloaded from Gradle distribution
+# For now, this will be handled by the GitHub Actions workflow
