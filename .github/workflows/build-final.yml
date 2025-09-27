@@ -1,0 +1,73 @@
+name: Build HEIC Converter Pro APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.16.0'
+        channel: 'stable'
+        cache: true
+        
+    - name: Flutter doctor
+      run: flutter doctor
+        
+    - name: Get Flutter dependencies
+      run: flutter pub get
+      
+    - name: Run Flutter analyze
+      run: flutter analyze || true
+      
+    - name: Build APK
+      run: flutter build apk --release
+      
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: heic-converter-pro-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
+        
+    - name: Create Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          build/app/outputs/flutter-apk/app-release.apk
+        tag_name: v1.0.0
+        name: HEIC Converter Pro v1.0.0
+        body: |
+          🎉 HEIC Converter Pro APK Ready!
+          
+          ## Features:
+          - ✅ HEIC to JPG/PNG/PDF conversion
+          - ✅ Batch processing
+          - ✅ Firebase authentication
+          - ✅ Material 3 UI
+          - ✅ Dark/Light mode
+          
+          ## Installation:
+          1. Download APK file
+          2. Enable "Unknown Sources" in Android settings
+          3. Install APK
+          4. Enjoy professional HEIC conversion!
+        draft: false
+        prerelease: false
