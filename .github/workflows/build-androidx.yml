@@ -36,6 +36,9 @@ jobs:
     
     - name: Generate build_runner code
       run: flutter pub run build_runner build --delete-conflicting-outputs
+
+    - name: Generate build_runner code
+      run: flutter pub run build_runner build --delete-conflicting-outputs
       
     - name: Run Flutter analyze
       run: flutter analyze || true
@@ -74,4 +77,5 @@ jobs:
           4. Enjoy professional HEIC conversion!
         draft: false
         prerelease: false
+
 
