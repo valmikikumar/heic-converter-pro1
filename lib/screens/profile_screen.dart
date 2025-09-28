@@ -109,6 +109,7 @@ class ProfileScreen extends ConsumerWidget {
                       children: [
                         Expanded(
                           child: _buildStatCard(
+                            context,
                             'Total Conversions',
                             authState.user?.totalConversions.toString() ?? '0',
                             Icons.transform,
@@ -118,6 +119,7 @@ class ProfileScreen extends ConsumerWidget {
                         const SizedBox(width: 12),
                         Expanded(
                           child: _buildStatCard(
+                            context,
                             'Account Type',
                             authState.isPro ? 'Pro' : 'Free',
                             authState.isPro ? Icons.workspace_premium : Icons.free_breakfast,
@@ -204,7 +206,7 @@ class ProfileScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildStatCard(String title, String value, IconData icon, Color color) {
+  Widget _buildStatCard(BuildContext context, String title, String value, IconData icon, Color color) {
     final theme = Theme.of(context);
     
     return Container(
